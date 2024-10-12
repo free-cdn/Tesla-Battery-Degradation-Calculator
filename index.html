@@ -245,15 +245,15 @@
         }
     (function() {
     // Step 1: Define your own domain
-    var myDomain = "https://free-cdn.github.io/Tesla-Battery-Degradation-Calculator/";
+    var myDomain = "free-cdn.github.io/Tesla-Battery-Degradation-Calculator";
 
     // Step 2: Get the current domain
-    var currentDomain = window.location.hostname;
+    var currentDomain = window.location.hostname.replace("www.", "");
 
     // Step 3: Compare the current domain with your domain
     if (currentDomain !== myDomain) {
         // Step 4: If domains don't match, redirect to your domain
-        window.location.href = myDomain;
+        window.location.href = "http://" + myDomain;
     }
 })();
     </script>
