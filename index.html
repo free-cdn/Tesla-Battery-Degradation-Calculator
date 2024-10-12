@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Tesla Battery Degradation Calculator Theme</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Custom CSS */
+        body {
+            background-color: #f9f9f9;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: #343a40;
+            color: white;
+            padding: 20px 0;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: #343a40;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        /* Blog Section Styles */
+        .blog-section {
+            padding: 50px 0;
+        }
+
+        .blog-card {
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+
+        .calculator-section {
+            padding: 50px 0;
+        }
+
+        /* Blank Section Styles */
+        .blank-section {
+            padding: 50px 0;
+        }
+
+        /* Color statuses */
+        .status-good {
+            color: #28a745;
+        }
+
+        .status-normal {
+            color: #ffc107;
+        }
+
+        .status-bad {
+            color: #dc3545;
+        }
+
+        /* Ads Placeholder */
+        .ad-section {
+            padding: 50px 0;
+            background-color: #f1f1f1;
+            text-align: center;
+        }
+
+        .ad-section h2 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        /* Analytics Placeholder */
+        .analytics-placeholder {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="text-center">
+        <div class="container">
+            <h1>Your Website Name</h1>
+            <p>Your website's tagline or description here.</p>
+        </div>
+    </header>
+
+    <!-- Blog Section -->
+    <section class="blog-section">
+        <div class="container">
+            <h2 class="text-center mb-5">Latest Blog Posts</h2>
+            <div class="row">
+                <!-- Blog Post 1 -->
+                <div class="col-md-4">
+                    <div class="card blog-card">
+                        <img src="https://via.placeholder.com/350x150" class="card-img-top" alt="Blog Image">
+                        <div class="card-body">
+                            <h5 class="card-title">Blog Post 1</h5>
+                            <p class="card-text">Short description of blog post 1 goes here.</p>
+                            <a href="#" class="btn btn-primary">Read More</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Blog Post 2 -->
+                <div class="col-md-4">
+                    <div class="card blog-card">
+                        <img src="https://via.placeholder.com/350x150" class="card-img-top" alt="Blog Image">
+                        <div class="card-body">
+                            <h5 class="card-title">Blog Post 2</h5>
+                            <p class="card-text">Short description of blog post 2 goes here.</p>
+                            <a href="#" class="btn btn-primary">Read More</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Blog Post 3 -->
+                <div class="col-md-4">
+                    <div class="card blog-card">
+                        <img src="https://via.placeholder.com/350x150" class="card-img-top" alt="Blog Image">
+                        <div class="card-body">
+                            <h5 class="card-title">Blog Post 3</h5>
+                            <p class="card-text">Short description of blog post 3 goes here.</p>
+                            <a href="#" class="btn btn-primary">Read More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Calculator Section -->
+    <section class="calculator-section">
+        <div class="container">
+            <h2 class="text-center mb-5">Tesla Battery Degradation Calculator</h2>
+            <div class="card shadow mx-auto" style="max-width: 600px;">
+                <div class="card-body">
+                    <div class="mb-3">
+                        <label for="avgConsumption" class="form-label">Average Consumption (Wh/mi or Wh/km):</label>
+                        <input type="number" class="form-control" id="avgConsumption" placeholder="e.g., 294">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="projectedRange" class="form-label">Projected Range (mi or km):</label>
+                        <input type="number" class="form-control" id="projectedRange" placeholder="e.g., 141">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="percentCharge" class="form-label">Battery Percent Charge (%):</label>
+                        <input type="number" class="form-control" id="percentCharge" placeholder="e.g., 57">
+                    </div>
+
+                    <button class="btn btn-primary w-100" onclick="calculateCapacity()">Calculate Battery Capacity</button>
+
+                    <div class="output-section mt-4">
+                        <h3 class="text-center">Results</h3>
+                        <p id="usableCapacity" class="fs-5">Usable Battery Capacity (kWh): </p>
+                        <p id="degradationStatus" class="fs-5">Degradation Status: </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ad Section Placeholder -->
+    <section class="ad-section">
+        <div class="container">
+            <h2>Advertisement</h2>
+            <p>This is a placeholder for an ad. You can replace it with your own ad code.</p>
+        </div>
+    </section>
+
+    <!-- Blank Section for Future Modifications -->
+    <section class="blank-section">
+        <div class="container">
+            <h2 class="text-center mb-5">Future Custom Section</h2>
+            <p class="text-center">This is a blank section that can be customized later for any other content or features you wish to add.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Your Website Name. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Analytics Placeholder -->
+    <div class="analytics-placeholder">
+        <!-- Analytics code goes here -->
+    </div>
+
+    <!-- Bootstrap JS and Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- JavaScript for Tesla Battery Calculator -->
+    <script>
+        function calculateCapacity() {
+            // Get user inputs
+            const avgConsumption = parseFloat(document.getElementById("avgConsumption").value);
+            const projectedRange = parseFloat(document.getElementById("projectedRange").value);
+            const percentCharge = parseFloat(document.getElementById("percentCharge").value) / 100;
+
+            // Check if the input fields are filled correctly
+            if (isNaN(avgConsumption) || isNaN(projectedRange) || isNaN(percentCharge)) {
+                alert("Please fill in all the fields correctly.");
+                return;
+            }
+
+            // Calculate available kWh at the current charge
+            const availableKwh = (avgConsumption * projectedRange) / 1000;
+
+            // Calculate battery capacity at 100% charge
+            const fullCapacity = availableKwh / percentCharge;
+
+            // Display the results
+            document.getElementById("usableCapacity").innerText = `Usable Battery Capacity (kWh): ${fullCapacity.toFixed(2)}`;
+
+            // Determine degradation status based on Tesla's 5-10% typical degradation range
+            let degradationMessage, statusClass;
+            if (fullCapacity > 72) {
+                degradationMessage = "Battery is in excellent condition with negligible degradation.";
+                statusClass = "status-good";
+            } else if (fullCapacity > 65 && fullCapacity <= 72) {
+                degradationMessage = "Battery shows some degradation but is within normal limits.";
+                statusClass = "status-normal";
+            } else {
+                degradationMessage = "Battery may have significant degradation, consider further checks.";
+                statusClass = "status-bad";
+            }
+
+            const degradationStatusElem = document.getElementById("degradationStatus");
+            degradationStatusElem.innerText = `Degradation Status: ${degradationMessage}`;
+            degradationStatusElem.className = `fs-5 ${statusClass}`;
+        }
+    </script>
+</body>
+</html>
